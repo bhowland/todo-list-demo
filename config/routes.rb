@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   resources :tasks
   
+  get    'signup'  => 'users#new'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  resources :users
+  
   get '/about_us' => 'welcome#about_us'
   root 'welcome#index'
 
